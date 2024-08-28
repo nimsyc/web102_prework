@@ -82,3 +82,11 @@ button {
 button:hover {
     background-color: #74ca9f;
 }
+
+.clicked {
+    background-color: #758190;
+}
+
+.notclicked {
+    background-color: #ffffff;
+}

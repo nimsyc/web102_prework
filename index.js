@@ -44,9 +44,9 @@ function addGamesToPage(games) {
         // between the end of the src attribute and the end of the tag ("/>")
         console.log(game.name);
         newDiv.innerHTML = `
-           
             <img src="${game.img}" class="game-img" />
-             <p><b>${game.name}</b></p>
+            <div class="
+            <p><b>${game.name}</b></p>
             <p>${game.description}</p>
             <p>Backers: ${game.backers} </p>
         `;
@@ -120,13 +120,15 @@ function filterUnfundedOnly() {
     
     console.log(listUnfunded.length);
 
-    
-
     // use the function we previously created to add the unfunded games to the DOM
     addGamesToPage(listUnfunded);
-}
 
-//filterUnfundedOnly();
+    document.getElementById("unfunded-btn").style.backgroundColor = '#6e9481';
+    document.getElementById("funded-btn").style.backgroundColor = 'white';
+    document.getElementById("all-btn").style.backgroundColor = 'white';
+}
+//filterUnfundedOnly(); // testing
+
 // show only games that are fully funded
 function filterFundedOnly() {
     deleteChildElements(gamesContainer);
@@ -140,9 +142,12 @@ function filterFundedOnly() {
 
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(listFunded);
-}
 
-//filterFundedOnly();
+    document.getElementById("unfunded-btn").style.backgroundColor = 'white';
+    document.getElementById("funded-btn").style.backgroundColor = '#6e9481';
+    document.getElementById("all-btn").style.backgroundColor = 'white';
+}
+//filterFundedOnly(); // testing
 
 // show all games
 function showAllGames() {
@@ -152,8 +157,12 @@ function showAllGames() {
     addGamesToPage(GAMES_JSON);
 
     console.log(GAMES_JSON.length);
+
+    document.getElementById("unfunded-btn").style.backgroundColor = 'white';
+    document.getElementById("funded-btn").style.backgroundColor = 'white';
+    document.getElementById("all-btn").style.backgroundColor = '#6e9481';
 }
-//showAllGames();
+//showAllGames(); // testing
 
 // select each button in the "Our Games" section
 const unfundedBtn = document.getElementById("unfunded-btn");
@@ -217,6 +226,7 @@ firstGameDiv.innerHTML = `
 
 firstGameContainer.appendChild(firstGameDiv);
 
+// do the same for the runner up item
 const secondGameDiv = document.createElement("p");
 
 secondGameDiv.innerHTML = `
@@ -225,4 +235,3 @@ secondGameDiv.innerHTML = `
 
 secondGameContainer.appendChild(secondGameDiv);
 
-// do the same for the runner up item
