@@ -81,10 +81,12 @@ button {
 
 button:hover {
     background-color: #74ca9f;
+    box-shadow: 0 0 30px #74ca9f;
 }
 
 .clicked {
     background-color: #c4c4c4;
+    /**box-shadow: none;*/
 }
 
 .notclicked {
