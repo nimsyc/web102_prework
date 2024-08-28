@@ -45,7 +45,7 @@ function addGamesToPage(games) {
         console.log(game.name);
         newDiv.innerHTML = `
             <img src="${game.img}" class="game-img" />
-            <div class="
+            <div class="progressBar"></div>
             <p><b>${game.name}</b></p>
             <p>${game.description}</p>
             <p>Backers: ${game.backers} </p>
@@ -109,6 +109,16 @@ gamesCard.innerHTML = `
  * Skills used: functions, filter
 */
 
+function toggleClick(element) {
+    element.classList.add('clicked');
+    element.classList.remove('notclicked');
+}
+
+function toggleNotclicked(element) {
+    element.classList.add('notclicked');
+    element.classList.remove('clicked');
+}
+
 // show only games that do not yet have enough funding
 function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
@@ -123,9 +133,12 @@ function filterUnfundedOnly() {
     // use the function we previously created to add the unfunded games to the DOM
     addGamesToPage(listUnfunded);
 
-    document.getElementById("unfunded-btn").style.backgroundColor = '#6e9481';
+    toggleClick(document.getElementById("unfunded-btn"));
+    toggleNotclicked(document.getElementById("funded-btn"));
+    toggleNotclicked(document.getElementById("all-btn"));
+    /**document.getElementById("unfunded-btn").classList.add('clicked');
     document.getElementById("funded-btn").style.backgroundColor = 'white';
-    document.getElementById("all-btn").style.backgroundColor = 'white';
+    document.getElementById("all-btn").style.backgroundColor = 'white';*/
 }
 //filterUnfundedOnly(); // testing
 
@@ -143,9 +156,9 @@ function filterFundedOnly() {
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(listFunded);
 
-    document.getElementById("unfunded-btn").style.backgroundColor = 'white';
-    document.getElementById("funded-btn").style.backgroundColor = '#6e9481';
-    document.getElementById("all-btn").style.backgroundColor = 'white';
+    toggleNotclicked(document.getElementById("unfunded-btn"));
+    toggleClick(document.getElementById("funded-btn"));
+    toggleNotclicked(document.getElementById("all-btn"));
 }
 //filterFundedOnly(); // testing
 
@@ -158,9 +171,9 @@ function showAllGames() {
 
     console.log(GAMES_JSON.length);
 
-    document.getElementById("unfunded-btn").style.backgroundColor = 'white';
-    document.getElementById("funded-btn").style.backgroundColor = 'white';
-    document.getElementById("all-btn").style.backgroundColor = '#6e9481';
+    toggleNotclicked(document.getElementById("unfunded-btn"));
+    toggleNotclicked(document.getElementById("funded-btn"));
+    toggleClick(document.getElementById("all-btn"));
 }
 //showAllGames(); // testing
 
