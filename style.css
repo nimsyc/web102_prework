@@ -2,7 +2,15 @@
 
 body {
     font-family: 'Cabin';
-    background-color: #758190;
+    background-image: linear-gradient(to bottom right, #88a5db, #5eb89a);
+    
+    /**background-color: #758190;*/
+}
+
+.content {
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
 }
 
 #tentacles {
@@ -11,7 +19,7 @@ body {
 
 .header {
     display: flex;
-    background-color: lightblue;
+    background-color: rgb(153, 219, 241);
     padding: 1%;
     align-items: center;
     margin-left: -10px;
@@ -22,13 +30,14 @@ body {
 .stats-container {
     display: flex;
     align-items: center;
+    
     /**((cursor: pointer;*/
     /**box-shadow: 0 0 30px lightblue*/
 }
 
 .stats-card {
-    background-color: #a8b0bc;
-    border-radius: 7px;
+    background-color: rgba(189, 219, 175, 0.4);
+    border-radius: 15px;
     padding: 1%;
     margin: 1%;
     width: 100%;
@@ -58,11 +67,23 @@ body {
     width: 300px;
     text-align: center;
     border-radius: 7px;
+    display:grid;
+    
+    
 }
 
 .game-card:hover {
     cursor: pointer;
     box-shadow: 0 0 30px lightblue;
+
+}
+
+.bottom-content {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
 }
 
 #button-container {
@@ -74,7 +95,7 @@ button {
     border: none;
     padding: 1%;
     margin: 1%;
-    border-radius: 7px;
+    border-radius: 5px;
     cursor: pointer;
     
 }
@@ -91,4 +112,20 @@ button:hover {
 
 .notclicked {
     background-color: #ffffff;
+}
+
+.progressBar {
+    background-color: red;
+    display: flex;
+    
+}
+
+.progress {
+    background-color: green;
+}
+
+.progressBarContainer {
+    background-color: #919191;
+    width:100%;
+    display:flex;
 }

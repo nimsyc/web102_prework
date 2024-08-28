@@ -43,12 +43,20 @@ function addGamesToPage(games) {
         // TIP: if your images are not displaying, make sure there is space
         // between the end of the src attribute and the end of the tag ("/>")
         console.log(game.name);
+
+        const percent = (game.pledged / game.goal) * 100;
+        const progressColor = percent >= 100 ? '#9bfc92' : '#fc9292';
+
         newDiv.innerHTML = `
             <img src="${game.img}" class="game-img" />
-            <div class="progressBar"></div>
             <p><b>${game.name}</b></p>
             <p>${game.description}</p>
             <p>Backers: ${game.backers} </p>
+            <div class="progressBarContainer">
+                <div class="progressBar" style="width: ${percent < 100 ? percent : 100}%; white-space: nowrap; background-color: ${progressColor}">
+                    <p>$${game.pledged.toLocaleString('US-en')} / $${game.goal.toLocaleString('US-en')}</p>
+                </div>       
+            </div>
         `;
         
         //newDiv.innerHTML = gameCard; // innerHTML has a security risk
@@ -56,6 +64,7 @@ function addGamesToPage(games) {
 
         // append the game to the games-container
         gamesContainer.appendChild(newDiv);
+        
     }
 }
 
