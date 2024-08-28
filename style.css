@@ -22,7 +22,7 @@ body {
 .stats-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
+    /**((cursor: pointer;*/
     /**box-shadow: 0 0 30px lightblue*/
 }
 
@@ -75,4 +75,10 @@ button {
     padding: 1%;
     margin: 1%;
     border-radius: 7px;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    background-color: #74ca9f;
 }
