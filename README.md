@@ -19,8 +19,10 @@ The following **optional** features are implemented:
 
 * [ ] game search
 * [ ] nav bar
-* [ ] background
-* [ ] aesthetics
+* [x] background
+* [x] toggle buttons
+* [x] aesthetics
+* [x] funding progress
 
 ## Video Walkthrough
 

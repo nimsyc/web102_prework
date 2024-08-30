@@ -4,24 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Pacifico&display=swap');
+    </style>
   </head>
 
   <body>
     <!-- header row with logo -->
     <div class="header">
-        <img id="tentacles" src="assets/tentacles.png">
-        <h1 class="header-text">Sea Monster Crowdfunding</h1>
+        <div style="justify-self: left; width:50px;  padding-left:1%">
+            <img id="tentacles" src="assets/tentacles.png" style="width: 2em;">
+        </div>
+        <div style="justify-self: left; width:600px; padding-left:1%">
+            <h1 class="header-text" style="margin:0px;">Sea Monster Crowdfunding</h1>
+        </div>
+        <div style="align-self: right; justify-self: right; width: 150px; text-align: center; font-family: 'Cabin'; border: 1px, solid, black; border-radius: 7px;">
+            <p><a href="#gameControls" style="color:black; text-decoration: none;">Games List</a></p>
+        </div>
     </div>
 
     <div class="content">
         <!-- background info about company -->
-        <h2>Welcome to Sea Monster!</h2>
-        <div id="description-container">
-            <p>The purpose of our company is to fund independent games. We've been in operation for 12 years.</p>
+        <div class="stats-container"">
+            <div>
+                <h2>Welcome to <br><span style="font-family: 'Anton SC', sans-serif; font-size: 2em"">Sea Monster!</span></h2>
+                <div id="description-container">
+                    <p>The purpose of our company is to fund independent games. We've been in operation for 12 years.</p>
+                </div>
+            </div>
+            <img src="assets/sea_monster_art.png" style="width: 300px;">
         </div>
 
         <!-- top games & other interesting stats -->
-        <h2>Stats</h2>
+        
+        <h2 style="font-family: 'Anton SC', sans-serif; font-size: 2em;">Stats</h2>
         <div class="stats-container">
             <div class="stats-card">
                 <h3>Individual Contributions</h3>
@@ -46,16 +62,20 @@
             <div class="stats-card" id="second-game">
                 <h3>🥈 Runner Up</h3>
             </div>
+            <div class="stats-card" id="gameControls">
+                <h2 style="font-family: 'Anton SC', sans-serif; font-size: 2em;"> Our Games</h2>
+                <p>Check out each of our games below!</p>
+                <div id="button-container">
+                    <button id="unfunded-btn">Show Unfunded Only</button>
+                    <button id="funded-btn">Show Funded Only</button>
+                    <button id="all-btn">Show All Games</button>
+                </div>
+                <input type="text" id="search" placeholder="Search games...">
+            </div>
         </div>
 
         <!-- list of games funded by Sea Monster -->
-        <h2>Our Games</h2>
-        <p>Check out each of our games below!</p>
-        <div id="button-container">
-            <button id="unfunded-btn">Show Unfunded Only</button>
-            <button id="funded-btn">Show Funded Only</button>
-            <button id="all-btn">Show All Games</button>
-        </div>
+        
         <div id="games-container">
 
         </div>

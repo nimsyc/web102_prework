@@ -51,11 +51,13 @@ function addGamesToPage(games) {
             <img src="${game.img}" class="game-img" />
             <p><b>${game.name}</b></p>
             <p>${game.description}</p>
-            <p>Backers: ${game.backers} </p>
-            <div class="progressBarContainer">
-                <div class="progressBar" style="width: ${percent < 100 ? percent : 100}%; white-space: nowrap; background-color: ${progressColor}">
-                    <p>$${game.pledged.toLocaleString('US-en')} / $${game.goal.toLocaleString('US-en')}</p>
-                </div>       
+            <div class="bottom-content">
+                <p>Backers: ${game.backers} </p>
+                <div class="progressBarContainer">
+                    <div class="progressBar" style="width: ${percent < 100 ? percent : 100}%; white-space: nowrap; background-color: ${progressColor}">
+                        <p>$${game.pledged.toLocaleString('US-en')} / $${game.goal.toLocaleString('US-en')}</p>
+                    </div>       
+                </div>
             </div>
         `;
         
@@ -197,6 +199,28 @@ unfundedBtn.addEventListener("click", filterUnfundedOnly);
 fundedBtn.addEventListener("click", filterFundedOnly);
 allBtn.addEventListener("click", showAllGames);
 
+
+function returnSearch(text) {
+    deleteChildElements(gamesContainer);
+
+    // use filter() to get a list of games that have met or exceeded their goal
+    let searchGames = GAMES_JSON.filter((game) => {
+        return game.name.toUpperCase().includes(text.toUpperCase());
+    });
+
+    addGamesToPage(searchGames);
+
+    toggleNotclicked(document.getElementById("unfunded-btn"));
+    toggleNotclicked(document.getElementById("funded-btn"));
+    toggleNotclicked(document.getElementById("all-btn"));
+    
+}
+
+const searchBar = document.getElementById("search");
+searchBar.addEventListener("input", (event) => {
+    returnSearch(event.target.value);
+});
+
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
  * Skills used: template literals, ternary operator
@@ -247,6 +271,13 @@ firstGameDiv.innerHTML = `
 `;
 
 firstGameContainer.appendChild(firstGameDiv);
+firstGameContainer.style.borderRadius = '50%';
+firstGameContainer.style.width = '400px';
+firstGameContainer.style.minWidth = '300px';
+firstGameContainer.style.height = '300px';
+firstGameContainer.style.minHeight = '200px';
+firstGameContainer.style.backgroundColor = " rgba(255, 255, 255, 0.3)";
+firstGameContainer.style.border = "5px, solid, white";
 
 // do the same for the runner up item
 const secondGameDiv = document.createElement("p");
@@ -256,4 +287,11 @@ secondGameDiv.innerHTML = `
 `;
 
 secondGameContainer.appendChild(secondGameDiv);
+secondGameContainer.style.borderRadius = '50%'
+secondGameContainer.style.width = '200px';
+secondGameContainer.style.minWidth = '150px';
+secondGameContainer.style.height = '150px';
+secondGameContainer.style.minHeight = '100px';
+secondGameContainer.style.backgroundColor = " rgba(255, 255, 255, 0.3)";
+secondGameContainer.style.border = "5px, solid, white";
 
