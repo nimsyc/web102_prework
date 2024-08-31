@@ -30,7 +30,6 @@ function addGamesToPage(games) {
 
     // loop over each item in the data
     for(const game of games) {
-        
 
         // create a new div element, which will become the game card
         const newDiv = document.createElement("div");
@@ -44,9 +43,11 @@ function addGamesToPage(games) {
         // between the end of the src attribute and the end of the tag ("/>")
         console.log(game.name);
 
+        // calculate percentage of pledge that was achieved, and change colors depending on if the goal was completed or not
         const percent = (game.pledged / game.goal) * 100;
         const progressColor = percent >= 100 ? '#9bfc92' : '#fc9292';
 
+        // template literal for game card contents: image, name, description, backers, and a progress bar
         newDiv.innerHTML = `
             <img src="${game.img}" class="game-img" />
             <p><b>${game.name}</b></p>
@@ -60,13 +61,10 @@ function addGamesToPage(games) {
                 </div>
             </div>
         `;
-        
-        //newDiv.innerHTML = gameCard; // innerHTML has a security risk
-        // name     description    pledged    goal    backers    img
-
+       // innerHTML has a security risk, in that the contents can be manipulated to change the website, however, this is using information from the website itself, so it should be safe
+       
         // append the game to the games-container
         gamesContainer.appendChild(newDiv);
-        
     }
 }
 
@@ -110,6 +108,7 @@ const totalGames = GAMES_JSON.reduce((acc, game) => {
     return acc + 1; // 1 for each game, as just adding game would be adding the object
 }, 0)
 
+// change formatting for the gamesCard
 gamesCard.innerHTML = `
     <p>${totalGames.toLocaleString('en-US')}</p>
 `;
@@ -120,11 +119,13 @@ gamesCard.innerHTML = `
  * Skills used: functions, filter
 */
 
+// passing an element through adds a "clicked" style element and removes "notclicked"
 function toggleClick(element) {
     element.classList.add('clicked');
     element.classList.remove('notclicked');
 }
 
+// passing an element through adds a "notclicked" style element and removes "clicked"
 function toggleNotclicked(element) {
     element.classList.add('notclicked');
     element.classList.remove('clicked');
@@ -144,12 +145,10 @@ function filterUnfundedOnly() {
     // use the function we previously created to add the unfunded games to the DOM
     addGamesToPage(listUnfunded);
 
+    // set the unfunded-btn to active
     toggleClick(document.getElementById("unfunded-btn"));
     toggleNotclicked(document.getElementById("funded-btn"));
     toggleNotclicked(document.getElementById("all-btn"));
-    /**document.getElementById("unfunded-btn").classList.add('clicked');
-    document.getElementById("funded-btn").style.backgroundColor = 'white';
-    document.getElementById("all-btn").style.backgroundColor = 'white';*/
 }
 //filterUnfundedOnly(); // testing
 
@@ -167,6 +166,7 @@ function filterFundedOnly() {
     // use the function we previously created to add unfunded games to the DOM
     addGamesToPage(listFunded);
 
+    // set the funded-btn to active
     toggleNotclicked(document.getElementById("unfunded-btn"));
     toggleClick(document.getElementById("funded-btn"));
     toggleNotclicked(document.getElementById("all-btn"));
@@ -182,6 +182,7 @@ function showAllGames() {
 
     console.log(GAMES_JSON.length);
 
+    // set the all-btn to active
     toggleNotclicked(document.getElementById("unfunded-btn"));
     toggleNotclicked(document.getElementById("funded-btn"));
     toggleClick(document.getElementById("all-btn"));
@@ -194,12 +195,11 @@ const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 
 // add event listeners with the correct functions to each button
-
 unfundedBtn.addEventListener("click", filterUnfundedOnly);
 fundedBtn.addEventListener("click", filterFundedOnly);
 allBtn.addEventListener("click", showAllGames);
 
-
+// return game JSON that includes text input into the function/search bar
 function returnSearch(text) {
     deleteChildElements(gamesContainer);
 
@@ -210,12 +210,13 @@ function returnSearch(text) {
 
     addGamesToPage(searchGames);
 
+    // set all buttons to inactive
     toggleNotclicked(document.getElementById("unfunded-btn"));
     toggleNotclicked(document.getElementById("funded-btn"));
     toggleNotclicked(document.getElementById("all-btn"));
-    
 }
 
+// grab text from the search bar, and add an event listener that uses the function above to return the game that matches the search
 const searchBar = document.getElementById("search");
 searchBar.addEventListener("input", (event) => {
     returnSearch(event.target.value);
@@ -244,6 +245,7 @@ const descriptionDiv = document.createElement("p");
 descriptionDiv.innerHTML = displayStr;
 
 descriptionContainer.appendChild(descriptionDiv);
+
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
  * Skills used: spread operator, destructuring, template literals, sort 
@@ -252,13 +254,13 @@ descriptionContainer.appendChild(descriptionDiv);
 const firstGameContainer = document.getElementById("first-game");
 const secondGameContainer = document.getElementById("second-game");
 
+// sort games based on amound pledged
 const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
 
 // use destructuring and the spread operator to grab the first and second games
 let [firstGame, secondGame, ...others] = sortedGames;
-
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 console.log(`first: ${firstGame.name}`);
@@ -270,6 +272,7 @@ firstGameDiv.innerHTML = `
     ${firstGame.name}
 `;
 
+// change the first game container to represent a bubble visually
 firstGameContainer.appendChild(firstGameDiv);
 firstGameContainer.style.borderRadius = '50%';
 firstGameContainer.style.width = '400px';
@@ -286,6 +289,7 @@ secondGameDiv.innerHTML = `
     ${secondGame.name}
 `;
 
+// change the second game container to represent a bubble visually
 secondGameContainer.appendChild(secondGameDiv);
 secondGameContainer.style.borderRadius = '50%'
 secondGameContainer.style.width = '200px';

@@ -1,10 +1,10 @@
-# WEB102 Prework - *Name of App Here*
+# WEB102 Prework - *Sea Monster Crowdfunding "Kraken Gaming"*
 
 Submitted by: **Nimsy Corea**
 
-**Name of your app** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
+**Sea Monster Crowdfunding "Kraken Gaming"** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: **X** hours spent in total
+Time spent: **14** hours spent in total
 
 ## Required Features
 
@@ -17,21 +17,21 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-* [ ] game search
-* [ ] nav bar
-* [x] background
-* [x] toggle buttons
-* [x] aesthetics
+* [x] The live search returns name games that match the search text.
+* [x] The navigation bar has a link to the main games section.
+* [x] The background was changed to be more pleasing.
+* [x] The game filter buttons toggle between the different selections.
+* [x] The aesthetics of the website were changed according to the theme, with original art included.
 * [x] funding progress
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='./assets/sea_monster.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with LiceCap.  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -40,6 +40,10 @@ GIF created with ...
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+The challenges in this project came with using JavaScript and using CSS to get the visuals I wanted. JavaScript can manipulate element's HTML and their CSS, and getting familiar with which takes priority took some testing of the code. The JavaScript conflicted with CSS rules and it changed the appearance. What helped this issue was using the Inspect Element feature on the local web server to find where there were issues and in what element, this made troubleshooting a lot easier. 
+
+My previous experience in CSS involved using Bootstrap, some aspects such as wrapping, margins, and padding, were slightly different syntax-wise to achieve. The framework combines a few CSS rules and focuses the styling to be mostly placed in the HTML file, based on my experience. I was, however, still able to achieve a responsive web design, which I tested using the Inspect Element Device Toolbar.
 
 ## License
 

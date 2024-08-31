@@ -3,8 +3,6 @@
 body {
     font-family: 'Cabin';
     background-image: linear-gradient(to bottom right, #739be4, #5eb89a);
-    
-    /**background-color: #758190;*/
 }
 
 .content {
@@ -28,7 +26,6 @@ body {
     font-family: "Pacifico",cursive;
     font-size: 150%;
     color: #5a7ab6;
-   /**justify-content: left;*/
     flex-wrap: wrap;
 }
 
@@ -39,9 +36,6 @@ body {
     align-self: center;
     text-align:center;
     justify-content: center;
-    
-    /**((cursor: pointer;*/
-    /**box-shadow: 0 0 30px lightblue*/
 }
 
 .stats-card {
@@ -78,14 +72,11 @@ body {
     text-align: center;
     border-radius: 7px;
     display:grid;
-    
-    
 }
 
 .game-card:hover {
     /**cursor: pointer;*/
     box-shadow: 0 0 30px lightblue;
-
 }
 
 .bottom-content {
@@ -93,16 +84,12 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-
 }
 
 #button-container {
     text-align: center;
     justify-content: center;
     align-self: center;
-    
-
-    
 }
 
 button {
@@ -113,8 +100,6 @@ button {
     border-radius: 5px;
     cursor: pointer;
     border: 5px, solid, #5eb89a; 
-    
-    
 }
 
 button:hover {
@@ -124,7 +109,6 @@ button:hover {
 
 .clicked {
     background-color: #b6b6b6;
-    /**box-shadow: none;*/
 }
 
 .notclicked {
@@ -134,7 +118,6 @@ button:hover {
 .progressBar {
     background-color: red;
     display: flex;
-    
 }
 
 .progress {
@@ -155,7 +138,6 @@ button:hover {
     justify-content: center;
     text-align: center;
     align-items: center;
-    
 }
 
 #search {
