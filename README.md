@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 * [x] The background was changed to be more pleasing.
 * [x] The game filter buttons toggle between the different selections.
 * [x] The aesthetics of the website were changed according to the theme, with original art included.
-* [x] funding progress
+* [x] Game card shows funding progress for each game based on the pledges and the goal.
 
 ## Video Walkthrough
 
@@ -38,8 +38,6 @@ GIF created with LiceCap.
 [peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
-
-Describe any challenges encountered while building the app.
 
 The challenges in this project came with using JavaScript and using CSS to get the visuals I wanted. JavaScript can manipulate element's HTML and their CSS, and getting familiar with which takes priority took some testing of the code. The JavaScript conflicted with CSS rules and it changed the appearance. What helped this issue was using the Inspect Element feature on the local web server to find where there were issues and in what element, this made troubleshooting a lot easier. 
 
